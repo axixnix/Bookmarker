@@ -15,12 +15,22 @@ function saveBookmark (e) {
     bookmarks.push(bookmark)
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
   }
+  fetchBookmarks()
 
   e.preventDefault()
 }
 
 function deleteBookmark (url) {
   var bookmarks = JSON.parse(localStorage.getItem('bookmarks'))
+
+  for (var i = 0;i < bookmarks.length;i++) {
+    if (bookmarks[i].url == url) {
+      bookmarks.splice(i, 1)
+    }
+  }
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks))
+
+  fetchBookmarks()
 }
 
 function fetchBookmarks () {
