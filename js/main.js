@@ -2,6 +2,11 @@ document.getElementById('myForm').addEventListener('submit', saveBookmark)
 function saveBookmark (e) {
   var siteName = document.getElementById('siteName').value
   var siteUrl = document.getElementById('siteUrl').value
+
+  if (!siteName || !siteUrl) {
+    alert('Please fill in the form')
+    return false
+  }
   var bookmark = {name: siteName,url: siteUrl}
 
   if (localStorage.getItem('bookmarks') === null) {
