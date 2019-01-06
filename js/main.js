@@ -43,13 +43,12 @@ function fetchBookmarks () {
 
   var bookmarksResults = document.getElementById('bookmarksResults')
 
-  console.log(bookmarksResults)
   bookmarksResults.innerHTML = ''
   for (var i = 0;i < bookmarks.length;i++) {
     var name = bookmarks[i].name
     var url = bookmarks[i].url
 
-    console.log(name)
+
     bookmarksResults.innerHTML += '<div class="well">' +
       '<h3>' + name +
       '<a class="btn btn-default" target ="_blank" href="' + url + '">Visit</a>' +
